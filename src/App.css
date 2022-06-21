@@ -1,6 +1,6 @@
-.App {
+/* /* .App {
   text-align: center;
-}
+} 
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +35,18 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.strike{
+  text-decoration: line-through;
+}
+.nonstrike{
+  text-decoration: none;
+}
+.block{
+  display: block;
+}
+.none{
+  display: none;
 }
