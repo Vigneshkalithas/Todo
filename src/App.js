@@ -21,9 +21,9 @@ function App() {
     ]);
   };
 
-  // const strikeStyle = {
-  //   textDecoration: done ? "line-through" : "none",
-  // }
+  const strikeStyle = {
+    textDecoration: done ? "line-through" : "none",
+  }
 
   let strike = (id) => {
     let itemIndex = list.findIndex((obj) => obj.id === id);
@@ -56,13 +56,14 @@ function App() {
             return (
               <li
                 className={item.isShow ? "block" : "none"}
-                style={{
-                  textDecoration: item.isDone ? 'line-through' : 'none'
-                }}
+                // style={{
+                //   textDecoration: item.isDone ? 'line-through' : 'none'
+                // }}
+                style={strikeStyle}
               >
                 
                 {item.name} -
-                <button onClick={() => strike(item.id)}>Strike</button> -
+                <button onClick={() => setDone(!done)}>Strike</button> -
                 <button onClick={() => del(item.id)}>Delete</button>
               </li>
             );
