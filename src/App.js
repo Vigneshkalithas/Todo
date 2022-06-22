@@ -7,7 +7,7 @@ function App() {
   const [val, SetVal] = useState("No text here");
   const [list, SetList] = useState([]);
   const [current, SetCurrent] = useState("");
-  const [done, setDone] = useState(false);
+
 
   let addItem = () => {
     SetList([
@@ -21,14 +21,11 @@ function App() {
     ]);
   };
 
-  const strikeStyle = {
-    textDecoration: done ? "line-through" : "none",
-  }
+  
 
   let strike = (id) => {
     let itemIndex = list.findIndex((obj) => obj.id === id);
-    list[itemIndex].isDone=true;
-    // SetDone(!done)
+    list[itemIndex].isDone = !list[itemIndex].isDone;
     SetList([...list]);
   };
 
@@ -56,14 +53,14 @@ function App() {
             return (
               <li
                 className={item.isShow ? "block" : "none"}
-                // style={{
-                //   textDecoration: item.isDone ? 'line-through' : 'none'
-                // }}
-                style={strikeStyle}
+                style={{
+                  textDecoration: item.isDone ? 'line-through' : 'none'
+                }}
+              
               >
                 
                 {item.name} -
-                <button onClick={() => setDone(!done)}>Strike</button> -
+                <button onClick={() => strike(item.id)}>{item.isDone ? "unstrike" : "strike" }</button> -
                 <button onClick={() => del(item.id)}>Delete</button>
               </li>
             );
